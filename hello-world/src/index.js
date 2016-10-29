@@ -1,9 +1,16 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import {render} from 'react-dom';
+import { Router, Route, browserHistory } from 'react-router'
 import App from './App';
 import './index.css';
 
-ReactDOM.render(
-  <App />,
-  document.getElementById('root')
-);
+const Page = () => {
+  return (
+    <Router history={browserHistory}>
+    <Route path="/" component={App}/>
+  </Router>
+  )
+}
+
+const renderDOM = document.getElementById('root');
+render(Page(), renderDOM);
